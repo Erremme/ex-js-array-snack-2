@@ -112,4 +112,28 @@ console.log(agesSum);
 const averageAge = agesSum / ages.length;
 console.log(averageAge);
 
+  /*
+  Snack 6 (Bonus) - Ordina i libri
+Crea una variabile booleana (areThereAvailableBooks) per verificare se c’è almeno un libro disponibile.
+Crea un array (booksByPrice) con gli elementi di books ordinati in base al prezzo (crescente).
+Ordina l’array booksByPricein base alla disponibilità (prima quelli disponibili), senza creare un nuovo array.
+  */
+const areThereAvailableBooks = books.some(book => book.available);
+console.log(areThereAvailableBooks);
+const booksByPrice = [...books].sort((a, b) => {
+  const priceA = parseFloat(a.price.replace('€', ''));
+  const priceB = parseFloat(b.price.replace('€', ''));
+  return priceA - priceB;
+});
+console.log(booksByPrice);
+booksByPrice.sort((a, b) => {
+    if (a.available ===  b.available) {
+        return 0; 
+    } else if (a.available === true && b.available === false) {
+        return -1; 
+    }else {
+        return 1; 
+    }
+});
+
 

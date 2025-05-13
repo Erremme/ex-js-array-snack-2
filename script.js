@@ -9,12 +9,17 @@ const ids = [2, 13, 7, 21, 19];
 async function getBooks(ids) {
   const promises = ids.map(id => fetch(`http://localhost:5000/books/${id}`).then(response => response.json()));
   const books = await Promise.all(promises);
+
   return books;
 }
 getBooks(ids)
   .then(books => {
     console.log(books);
+    
   })
   .catch(error => {
     console.error('Error fetching books:', error);
   });
+
+
+
